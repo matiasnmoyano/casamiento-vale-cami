@@ -1,0 +1,562 @@
+@font-face {
+  font-family: "Aurore";
+  src: url(../public/LA-BELLE-AURORE.TTF) format("woff2");
+}
+@font-face {
+  font-family: "Cinzel";
+  src: url(../public/CINZEL-MEDIUM.TTF) format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.6;
+  color: #2c2c2c;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+.wedding-container {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Animations */
+.animate-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  background: linear-gradient(135deg, #f8f6f3 0%, #f1ede7 100%);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 800px;
+  width: 100%;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 4rem;
+}
+.frase-bebamos {
+  margin-top: 25px;
+}
+.flores-wedding {
+  margin-top: 25px;
+  width: 70px;
+}
+.couple-names {
+  font-family: "Aurore";
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  color: #2c2c2c;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.wedding-date {
+  width: 80%;
+  position: relative;
+  display: inline-block;
+  max-width: 500px;
+}
+.wedding-img {
+  margin-top: 50px;
+  width: 70px;
+  margin-bottom: 1rem;
+}
+.altar {
+  width: 150px;
+}
+.horario {
+  width: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* Remove the problematic lines that cause horizontal scroll on mobile */
+@media (min-width: 768px) {
+  .wedding-date::before,
+  .wedding-date::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 1px;
+    background: #8b7355;
+  }
+
+  .wedding-date::before {
+    left: -80px;
+  }
+
+  .wedding-date::after {
+    right: -80px;
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 300;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll-arrow {
+  width: 24px;
+  height: 24px;
+  color: #8b7355;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Info Section */
+.info-section {
+  padding: 2rem 0;
+  background: #ffffff;
+}
+
+.section-title {
+  font-family: "Aurore";
+  font-size: 30px;
+  font-weight: 400;
+  color: #2c2c2c;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #fafafa;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.info-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: #8b7355;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.info-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.info-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.info-time {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #8b7355;
+  margin-bottom: 0.5rem;
+}
+
+.info-location {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* RSVP Section */
+.rsvp-section {
+  padding: 6rem 0;
+  background: #f8f6f3;
+}
+
+.rsvp-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rsvp-form {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: #2c2c2c;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e5e5e5;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #8b7355;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  padding: 1rem;
+  border: 2px solid #e5e5e5;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.radio-option:hover {
+  border-color: #8b7355;
+  background: #fafafa;
+}
+
+.radio-option input[type="radio"] {
+  display: none;
+}
+
+.radio-custom {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e5e5e5;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom {
+  border-color: #8b7355;
+  background: #8b7355;
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  background: #8b7355;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.submit-btn:hover {
+  background: #7a6449;
+  transform: translateY(-2px);
+}
+
+/* Confirmation Message */
+.confirmation-message {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.confirmation-icon {
+  width: 80px;
+  height: 80px;
+  background: #4ade80;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+}
+
+.check-icon {
+  width: 40px;
+  height: 40px;
+  color: white;
+}
+
+.confirmation-message h3 {
+  font-size: 1.8rem;
+  color: #2c2c2c;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.confirmation-message p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Gift Section */
+.gift-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.gift-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gift-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background: #8b7355;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+}
+
+.gift-icon {
+  width: 40px;
+  height: 40px;
+  color: white;
+}
+
+.gift-content h3 {
+  font-size: 1.8rem;
+  color: #2c2c2c;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.gift-content p {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.gift-details {
+  background: #f8f6f3;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.gift-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+.gift-item:last-child {
+  margin-bottom: 0;
+}
+
+.gift-item strong {
+  color: #2c2c2c;
+  font-weight: 600;
+}
+
+.gift-item span {
+  font-family: "Courier New", monospace;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.gift-note {
+  font-style: italic;
+  color: #8b7355;
+  font-size: 1rem;
+}
+
+/* Footer */
+.wedding-footer {
+  padding: 3rem 0;
+  background: #2c2c2c;
+  text-align: center;
+}
+
+.footer-heart {
+  width: 24px;
+  height: 24px;
+  color: #8b7355;
+  margin-bottom: 1rem;
+}
+
+.wedding-footer p {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+
+  .radio-group {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .radio-option {
+    flex: 1;
+    max-width: 250px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .gift-item {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .couple-names {
+    font-size: 6rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-section,
+  .scroll-arrow {
+    animation: none;
+  }
+}
