@@ -517,6 +517,9 @@ body {
 
 /* Responsive Design */
 @media (min-width: 768px) {
+  .gift-details {
+    width: 500px;
+  }
   .info-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
@@ -571,6 +574,7 @@ body {
 }
 
 .gift-text {
+  width: 240px;
   margin: 0 8px;
   font-family: "Cinzel", serif;
   user-select: all;
