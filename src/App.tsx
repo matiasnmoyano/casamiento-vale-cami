@@ -74,7 +74,7 @@ function App() {
         <div className="hero-content">
           <img src="/images/bailando.svg" className="wedding-img" />
           <div className="hero-text">
-            <h1 className="couple-names">Valentín & Camila</h1>
+            <h1 className="couple-names">Camila & Valentín</h1>
             <img src="/images/flores.svg" className="flores-wedding" />
             <img
               src="/images/frase-bebamos.svg"
@@ -136,6 +136,7 @@ function App() {
               >
                 Dress code
               </strong>
+              <img style={{ maxWidth: "300px" }} src="/images/dresscode.png" />
               <p style={{ fontFamily: "Cinzel", fontSize: "24px" }}>
                 Formal elegante
               </p>
@@ -157,31 +158,28 @@ function App() {
             por favor, confirma tu <br />
             presencia antes del 30 de noviembre
           </p>
-          {!submitted ? (
-            <div className="rsvp-form-container">
-              <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLScVEDKlNkiUfvsn1SUH1FWzq-d_elXn5EA0bNwLNvVQN95GXg/viewform?embedded=true"
-                style={{
-                  width: "100%",
-                  height: "1100px",
-                  overflow: "hidden",
-                }}
-              >
-                Cargando…
-              </iframe>
-            </div>
-          ) : (
-            <div className="confirmation-message">
-              <div className="confirmation-icon">
-                <Check className="check-icon" />
-              </div>
-              <h3>¡Confirmación recibida!</h3>
-              <p>
-                Gracias por confirmar tu asistencia. ¡Te esperamos para bailar y
-                disfrutar!
-              </p>
-            </div>
-          )}
+          <p
+            style={{
+              fontFamily: "Cinzel",
+              textAlign: "center",
+              fontSize: "14px",
+            }}
+          >
+            Aceptá las cookies para ver el formulario
+          </p>
+
+          <div className="rsvp-form-container">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLScVEDKlNkiUfvsn1SUH1FWzq-d_elXn5EA0bNwLNvVQN95GXg/viewform?embedded=true"
+              style={{
+                width: "100%",
+                height: "1100px",
+                overflow: "hidden",
+              }}
+            >
+              Cargando…
+            </iframe>
+          </div>
         </div>
       </section>
 
@@ -197,10 +195,15 @@ function App() {
             Regalos
           </h2>
 
-          <div className="gift-content">
-            <div className="gift-icon-wrapper">
-              <img src="/images/regalo.svg"></img>
-            </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+            className="gift-content"
+          >
+            <img style={{ width: "120px" }} src="/images/regalo.png"></img>
 
             <h3 style={{ fontFamily: "Aurore", fontSize: "36px" }}>
               Tu presencia es nuestro regalo
@@ -254,7 +257,7 @@ function App() {
       {/* Footer */}
       <footer className="wedding-footer">
         <div className="container">
-          <p>Con amor, Valentín & Camila</p>
+          <p>Con amor, Camila & Valentín</p>
         </div>
       </footer>
     </div>

@@ -4,7 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Valentín & Camila - Nuestra Boda",
+  title: "Camila & Valentín - Nuestra Boda",
   description: "Te invitamos a celebrar nuestro amor. 7 de Febrero 2025",
   generator: "matiasnmoyano",
 };
