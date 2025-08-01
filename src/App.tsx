@@ -256,9 +256,21 @@ function App() {
 
       {/* Footer */}
       <footer className="wedding-footer">
-        <div className="container">
+        <div style={{ marginBottom: "36px" }} className="container">
           <p>Con amor, Camila & Valentín</p>
         </div>
+        <span
+          style={{
+            width: "100%",
+            color: "white",
+            fontSize: "10px",
+          }}
+        >
+          Powered by{" "}
+          <a target="_blank" href="https://wa.me/5402604017481">
+            Matias Moyano
+          </a>
+        </span>
       </footer>
     </div>
   );
