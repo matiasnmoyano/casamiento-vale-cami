@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Camila & Valentín - Nuestra Boda",
-  description: "Te invitamos a celebrar nuestro amor. 7 de Febrero 2025",
+  description: "Te invitamos a celebrar nuestro amor. 7 de Febrero 2026",
   generator: "matiasnmoyano",
 };
 
