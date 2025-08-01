@@ -126,7 +126,7 @@ function App() {
             <div className="info-card">
               <img src="/images/orden-evento.svg"></img>
             </div>
-            <div className="info-card">
+            <div className="info-card info-card--full">
               <strong
                 style={{
                   fontSize: "36px",
