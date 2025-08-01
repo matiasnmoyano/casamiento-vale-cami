@@ -560,3 +560,29 @@ body {
     animation: none;
   }
 }
+.gift-item {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 1rem;
+}
+
+.gift-text {
+  margin: 0 8px;
+  font-family: "Cinzel", serif;
+  user-select: all;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.icon-button:hover {
+  transform: scale(1.2);
+}

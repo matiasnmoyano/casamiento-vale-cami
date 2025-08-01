@@ -3,7 +3,7 @@
 import type React from "react";
 
 import { useState, useEffect } from "react";
-import { Heart, Calendar, Gift, Check, ArrowDown } from "lucide-react";
+import { Heart, Check, ArrowDown, Copy } from "lucide-react";
 import "./App.css";
 
 function App() {
@@ -13,6 +13,14 @@ function App() {
     menuPreference: "",
     message: "",
   });
+  const [copiedField, setCopiedField] = useState<"cbu" | "alias" | null>(null);
+
+  const handleCopy = (text: string, field: "cbu" | "alias") => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedField(field);
+      setTimeout(() => setCopiedField(null), 2000); // feedback por 2 segundos
+    });
+  };
   const [submitted, setSubmitted] = useState(false);
   const [visibleSections, setVisibleSections] = useState<number[]>([]);
 
@@ -118,6 +126,20 @@ function App() {
             <div className="info-card">
               <img src="/images/orden-evento.svg"></img>
             </div>
+            <div className="info-card">
+              <strong
+                style={{
+                  fontSize: "36px",
+                  fontFamily: "Aurore",
+                  fontWeight: "500",
+                }}
+              >
+                Dress code
+              </strong>
+              <p style={{ fontFamily: "Cinzel", fontSize: "24px" }}>
+                Formal elegante
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -131,7 +153,10 @@ function App() {
       >
         <div className="container">
           <h2 className="section-title">Confirmá tu asistencia</h2>
-
+          <p style={{ fontFamily: "Cinzel", textAlign: "center" }}>
+            por favor, confirma tu <br />
+            presencia antes del 30 de noviembre
+          </p>
           {!submitted ? (
             <div className="rsvp-form-container">
               <iframe
@@ -181,17 +206,41 @@ function App() {
               Tu presencia es nuestro regalo
             </h3>
             <p style={{ fontFamily: "Cinzel" }}>
-              Si deseas hacernos un regalo, puedes hacerlo a través de:
+              Si deseas acompañarnos con nuestros proyectos, <br /> podes
+              hacerlo acá
             </p>
 
             <div className="gift-details">
               <div className="gift-item">
                 <strong>CBU:</strong>
-                <span>0123456789012345678901</span>
+                <span className="gift-text">0170285140000033624727</span>
+                <button
+                  className="icon-button"
+                  onClick={() => handleCopy("0170285140000033624727", "cbu")}
+                  aria-label="Copiar CBU"
+                >
+                  {copiedField === "cbu" ? (
+                    <Check size={18} color="#4caf50" />
+                  ) : (
+                    <Copy size={18} />
+                  )}
+                </button>
               </div>
-              <div className="gift-item">
+
+              <div style={{ maxWidth: "500px" }} className="gift-item">
                 <strong>Alias:</strong>
-                <span>MARIA.JUAN.BODA</span>
+                <span className="gift-text">camilayvalentin26</span>
+                <button
+                  className="icon-button"
+                  onClick={() => handleCopy("camilayvalentin26", "alias")}
+                  aria-label="Copiar alias"
+                >
+                  {copiedField === "alias" ? (
+                    <Check size={18} color="#4caf50" />
+                  ) : (
+                    <Copy size={18} />
+                  )}
+                </button>
               </div>
             </div>
 
@@ -205,7 +254,6 @@ function App() {
       {/* Footer */}
       <footer className="wedding-footer">
         <div className="container">
-          <Heart className="footer-heart" />
           <p>Con amor, Valentín & Camila</p>
         </div>
       </footer>
